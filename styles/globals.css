@@ -7,12 +7,14 @@ img {
 }
 
 input,
-textarea {
+textarea,
+select {
   @apply border-2 border-gray-300 rounded-md px-2 w-full;
   @apply mb-2;
 }
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   @apply border-purple-900;
 }
 h1 {
