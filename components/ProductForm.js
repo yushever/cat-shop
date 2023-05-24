@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
-import Spinner from "./Spinner";
 import { ReactSortable } from "react-sortablejs";
+import CatLoader from "@/components/CatLoader";
 
 export default function ProductForm({
   _id,
@@ -147,7 +147,7 @@ export default function ProductForm({
         </ReactSortable>
         {isUploading && (
           <div className="h-24 w-24 flex items-center justify-center">
-            <Spinner />
+            <CatLoader />
           </div>
         )}
         <label className="w-24 h-24 cursor-pointer border text-center flex flex-col items-center justify-center text-primary rounded-lg border-primary bg-white shadow-sm ">
