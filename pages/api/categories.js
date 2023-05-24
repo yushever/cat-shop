@@ -9,7 +9,6 @@ export default async function handle(req, res) {
   await isAdminRequest(req, res);
 
   const session = await getServerSession(req, res, authOptions);
-  console.log(session);
 
   if (method === "GET") {
     res.json(await Category.find().populate("parent"));

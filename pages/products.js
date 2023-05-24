@@ -2,11 +2,15 @@ import Layout from "@/components/Layout";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import CatLoader from "@/components/CatLoader";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
+  const [loading, setIsLoading] = useState(true);
   useEffect(() => {
+    setIsLoading(true);
     axios.get("/api/products").then((response) => {
+      setIsLoading(false);
       setProducts(response.data);
     });
   }, []);
@@ -68,6 +72,11 @@ export default function Products() {
           ))}
         </tbody>
       </table>
+      {loading ? (
+        <div className="flex mt-10 justify-center items-center">
+          <CatLoader />
+        </div>
+      ) : null}
     </Layout>
   );
 }

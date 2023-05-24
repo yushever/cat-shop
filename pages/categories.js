@@ -1,9 +1,8 @@
 import Layout from "@/components/Layout";
 import { useEffect, useState } from "react";
 import axios from "axios";
-// import { withSwal } from "sweetalert2";
 import Swal from "sweetalert2";
-import { withSwal } from "sweetalert2-react-content";
+import CatLoader from "@/components/CatLoader";
 
 export default function Categories({ swal }) {
   const [editedCategory, setEditedCategory] = useState(null);
@@ -11,12 +10,16 @@ export default function Categories({ swal }) {
   const [parentCategory, setParentCategory] = useState("");
   const [categories, setCategories] = useState([]);
   const [properties, setProperties] = useState([]);
+  const [loading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetchCategories();
   }, []);
+
   function fetchCategories() {
     axios.get("/api/categories").then((result) => {
+      setIsLoading(false);
       setCategories(result.data);
     });
   }
@@ -219,8 +222,11 @@ export default function Categories({ swal }) {
           </tbody>
         </table>
       )}
+      {loading ? (
+        <div className="flex mt-10 justify-center items-center">
+          <CatLoader />
+        </div>
+      ) : null}
     </Layout>
   );
 }
-
-// export default withSwal(({ swal }, ref) => <Categories swal={swal} />);

@@ -13,6 +13,9 @@ module.exports = {
         bgGray: "#DDE6ED",
         a: "#526D82",
       },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
     },
   },
   plugins: [],
