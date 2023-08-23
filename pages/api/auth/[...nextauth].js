@@ -5,8 +5,8 @@ import clientPromise from "../../../lib/mongodb";
 import { Admin } from "@/models/Admin";
 
 async function isAdminEmail(email) {
-  // return true;
-  return !!(await Admin.findOne({ email }));
+  return true;
+  // return !!(await Admin.findOne({ email }));
 }
 
 export const authOptions = {
