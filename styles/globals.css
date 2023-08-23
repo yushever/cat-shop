@@ -20,6 +20,9 @@ select:focus {
 h1 {
   @apply text-gray-600 mb-2 text-xl;
 }
+h2 {
+  @apply text-gray-600 mt-4 mb-2 text-lg;
+}
 label {
   @apply text-primary text-sm;
 }

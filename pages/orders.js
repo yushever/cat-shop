@@ -1,12 +1,17 @@
+import CatLoader from "@/components/CatLoader";
 import Layout from "@/components/Layout";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
+  const [loading, setIsLoading] = useState(false);
+
   useEffect(() => {
+    setIsLoading(true);
     axios.get("api/orders").then((res) => {
       setOrders(res.data);
+      setIsLoading(false);
     });
   }, []);
   return (
@@ -22,6 +27,15 @@ export default function OrdersPage() {
           </tr>
         </thead>
         <tbody>
+          {loading ? (
+            <tr>
+              <td colSpan={4}>
+                <div className="flex p-10 justify-center items-center">
+                  <CatLoader />
+                </div>
+              </td>
+            </tr>
+          ) : null}
           {orders.length > 0 &&
             orders.map((order) => (
               <tr>

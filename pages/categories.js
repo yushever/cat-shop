@@ -200,6 +200,15 @@ export default function Categories({ swal }) {
             </tr>
           </thead>
           <tbody>
+            {loading ? (
+              <tr>
+                <td colSpan={2}>
+                  <div className="flex p-10 justify-center items-center">
+                    <CatLoader />
+                  </div>
+                </td>
+              </tr>
+            ) : null}
             {categories.length > 0 &&
               categories.map((category) => (
                 <tr>
@@ -222,11 +231,6 @@ export default function Categories({ swal }) {
           </tbody>
         </table>
       )}
-      {loading ? (
-        <div className="flex mt-10 justify-center items-center">
-          <CatLoader />
-        </div>
-      ) : null}
     </Layout>
   );
 }

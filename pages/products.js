@@ -27,6 +27,15 @@ export default function Products() {
           </tr>
         </thead>
         <tbody>
+          {loading ? (
+            <tr>
+              <td colSpan={2}>
+                <div className="flex p-10 justify-center items-center">
+                  <CatLoader />
+                </div>
+              </td>
+            </tr>
+          ) : null}
           {products.map((product) => (
             <tr key={product._id}>
               <td>{product.title}</td>
@@ -72,11 +81,6 @@ export default function Products() {
           ))}
         </tbody>
       </table>
-      {loading ? (
-        <div className="flex mt-10 justify-center items-center">
-          <CatLoader />
-        </div>
-      ) : null}
     </Layout>
   );
 }
