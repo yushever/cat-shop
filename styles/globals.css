@@ -40,7 +40,7 @@ table.basic tr td {
   @apply px-4 py-1;
 }
 table.basic a {
-  @apply px-4 py-1 rounded-md inline-flex mx-1 items-center gap-1 text-sm py-1;
+  @apply px-4 rounded-md inline-flex mx-1 items-center gap-1 text-sm py-1;
 }
 .btn-red {
   @apply bg-red-200 text-red-600 px-4 py-1 rounded-md shadow-sm;

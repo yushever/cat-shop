@@ -3,8 +3,8 @@ export default function Cat() {
     <svg
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
-      width="50.000000pt"
-      height="50.000000pt"
+      width="50px"
+      height="50px"
       viewBox="0 0 50.000000 50.000000"
       preserveAspectRatio="xMidYMid meet">
       <g
