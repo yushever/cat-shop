@@ -104,7 +104,7 @@ export default function AdminsPage({ swal }) {
           )}
           {adminEmails.length > 0 &&
             adminEmails.map((email) => (
-              <tr>
+              <tr key={email._id}>
                 <td>{email.email}</td>
                 <td>{email.createdAt && prettyDate(email.createdAt)}</td>
                 <td>
